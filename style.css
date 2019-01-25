@@ -1,0 +1,145 @@
+
+@import url(http://fonts.googleapis.com/css?family=Lato:400,300,700);
+
+body {
+  font-family: 'Lato', sans-serif !important;
+}
+
+
+div#dinnerplanner {
+    background-color: #D3D3D3;
+    padding: 20px
+}
+
+div.intro {
+  margin-top: 9vw;
+}
+
+div#sideBar {
+  
+    
+}
+
+
+div#sbminirow1 {
+  border:2px solid;
+}
+
+div#sbminirow2 {
+  border-bottom: 2px solid;
+background-color: #D3D3D3;
+}
+
+div#sbminirow3 {
+ 
+}
+
+div#collapse {
+   border-right:2px solid; 
+    border-left:2px solid; 
+    border-bottom:2px solid;
+    
+}
+
+
+div#overview {
+  border:2px solid;text-align:center;
+  padding-bottom:25%;
+}
+
+
+div#ingredientsdetail {
+  border:2px solid;
+}
+
+div#overview {
+  border:2px solid;
+}
+
+
+div#searchforfood {
+}
+
+h4#enterkeywords {
+  margin: 20px;
+}
+
+ img#dishdetailimg {
+  width:  100%;
+  height: 500px;
+}
+
+div#ingredientsdetail{
+  background:#ffe7a0
+}
+
+
+div#pictureRow {
+  margin: 10vh;
+}
+
+div#dishesbought{
+  border:2px solid;
+  margin: 2px;
+  background-color: #D3D3D3;
+
+
+}
+
+button#dropdownMenuButton{
+  width: 200px;
+    margin:20px
+}
+
+img {
+  width: 200px;
+}
+
+div.card {
+    margin: 10px;
+}
+
+div.card-block {
+    background-color: #D3D3D3;
+    border: 2px solid;
+}
+
+div.card-title {
+    border-top: 2px solid;
+}
+
+hr {
+  width: 100%; color: black; height: 1px; background-color:black;
+}
+
+
+button.btn-primary {
+  background-color:#F4A460;
+  color: #000000;
+  border: 2px solid #000000;
+
+}
+
+
+
+
+@media (min-width: 768px) {
+  .collapse.dont-collapse-sm {
+    display: block;
+    height: auto !important;
+    visibility: visible;
+  }
+}
+
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) { ... }
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) { ... }
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) { ... }

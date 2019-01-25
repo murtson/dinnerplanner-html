@@ -1,60 +1,117 @@
 //DinnerModel Object constructor
-class DinnerModel {
-
-    constructor(){
-	this.dishes=dishesConst; // to be replaced in lab 3
-	
+var DinnerModel = function() {
+ 
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
 
-    }
+    var NumberOfGuests = 7; 
+    var SelectedDishes = []; 
 
-	setNumberOfGuests(num) {
+	this.setNumberOfGuests = function(num) {
 		//TODO Lab 1
+        NumberOfGuests = num;
+        
 	}
 	
-	getNumberOfGuests() {
+	this.getNumberOfGuests = function() {
 		//TODO Lab 1
+        return NumberOfGuests; 
 	}
 
 	//Returns the dish that is on the menu for selected type 
-	getSelectedDish(type) {
+	this.getSelectedDish = function(type) {
 		//TODO Lab 1
+        DishLen = SelectedDishes.length; //Checks the length of the SelectedDishes array to know how much to loop
+        OutputList = [];
+        for (i = 0; i < DishLen; i++) {
+           if (SelectedDishes[i].type == type){
+               OutputList.push(SelectedDishes[i].name);
+           }  
+        }     
+        return OutputList;    
 	}
 
 	//Returns all the dishes on the menu.
-	getFullMenu() {
+	this.getFullMenu = function() {
 		//TODO Lab 1
+        DishLen = SelectedDishes.length; //Checks the length of the SelectedDishes-array to know how many steps to loop
+        OutputList = [];
+        for (i = 0; i < DishLen; i++) {
+            OutputList.push(SelectedDishes[i].name); 
+        }     
+        return OutputList;    
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
-	getAllIngredients() {
+	this.getAllIngredients = function() {
 		//TODO Lab 1
+        DishLen = SelectedDishes.length; //Checks the length of the SelectedDishes-array to know how many steps to loop
+        OutputList = []; //The outputlist, currently empty
+        for (i = 0; i < DishLen; i++) {
+            OutputList.push(SelectedDishes[i].ingredients);
+        }
+        return OutputList;        
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
-	getTotalMenuPrice() {
+	this.getTotalMenuPrice = function() {
 		//TODO Lab 1
-	}
+        DishLen = SelectedDishes.length;
+        var MenuPrice = 0; //The MenuPrice, currently 0
+          for (i = 0; i < DishLen; i++) {
+            IngredLen = SelectedDishes[i].ingredients.length; //checking the length of the ingredientlist for the selected food
+            for (j = 0; j < IngredLen; j++) { //looping through the ingredients and adding their price to the MenuPrice
+              MenuPrice += (SelectedDishes[i].ingredients[j].price);
+            }
+          }
+
+          var TotalMenuPrice = MenuPrice * NumberOfGuests;
+          return TotalMenuPrice;
+      	}
+	
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
-	addDishToMenu(id) {
+	this.addDishToMenu = function(id) {
 		//TODO Lab 1 
-	}
+        DishLen = dishes.length;
+        Dishlen1 = SelectedDishes.length;
+        for (i = 0; i < DishLen; i++) {
+        if (dishes[i].id == id) { //If we find the food we are looking for
+            for (j= 0; j < Dishlen1; j++) { //We need to check if the same type exist in SelectedDishes
+            if (dishes[i].type == SelectedDishes[j].type) {
+                SelectedDishes.splice(j,1);
+                SelectedDishes.push(dishes[i]);
+                return SelectedDishes;
+            }
+            }
+            SelectedDishes.push(dishes[i]);
+            return SelectedDishes;
+        }
+        }
+        return SelectedDishes
+
+	   }
 
 	//Removes dish from menu
-	removeDishFromMenu(id) {
+	this.removeDishFromMenu = function(id) {
 		//TODO Lab 1
-	}
+        Dishlen1 = SelectedDishes.length;
+        for (i = 0; i < Dishlen1; i++) {
+            if (SelectedDishes[i].id == id) {
+            SelectedDishes.splice(i,1);
+            return SelectedDishes
+            }
+        }   
+        return "Nothing got removed, since you didnt have that dish to begin with."
+	   }
 
-    
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-	getAllDishes(type,filter) {
-	  return this.dishes.filter(function(dish) {
-		let found = true;
+	this.getAllDishes = function (type,filter) {
+	  return dishes.filter(function(dish) {
+		var found = true;
 		if(filter){
 			found = false;
 			dish.ingredients.forEach(function(ingredient) {
@@ -72,25 +129,24 @@ class DinnerModel {
 	}
 
 	//function that returns a dish of specific ID
-	getDish (id) {
-	    for(let dsh of this.dishes){
-		if(dsh.id == id) {
-		    return dsh;
+	this.getDish = function (id) {
+	  for(key in dishes){
+			if(dishes[key].id == id) {
+				return dishes[key];
+			}
 		}
-	    }
-	    return undefined;
 	}
-}
 
-	// the dishes constant contains an array of all the 
-	// dishes in the database. Each dish has id, name, type,
+
+	// the dishes variable contains an array of all the 
+	// dishes in the database. each dish has id, name, type,
 	// image (name of the image file), description and
 	// array of ingredients. Each ingredient has name, 
 	// quantity (a number), price (a number) and unit (string 
 	// defining the unit i.e. "g", "slices", "ml". Unit
 	// can sometimes be empty like in the example of eggs where
 	// you just say "5 eggs" and not "5 pieces of eggs" or anything else.
-        const dishesConst = [{
+	var dishes = [{
 		'id':1,
 		'name':'French toast',
 		'type':'starter',
@@ -333,4 +389,4 @@ class DinnerModel {
 		}
 	];
 
-
+}

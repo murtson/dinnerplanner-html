@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dinner planner</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body>
+
+    <div class ="container-fluid" id="dinnerplanner">
+      <div class = "row">
+        <div class ="col-md-12">
+        <h1 class = "text-center">Dinner Planner</h1>
+        </div>
+      </div>
+    </div>
+
+
+  <div class ="row">
+         <div class="col-lg-2" id="sideBar"> <!--Här börjar sidebarenr-->
+        <div class="row" id ="sbminirow1">
+        <div class = "col-6">
+            <h5 align="left">My Dinner</h5>
+          </div>
+        <div class ="col-6">
+            <h5 class ="d-block d-sm-none"data-toggle="collapse" data-target="#collapse" aria-expanded="false" controls="" class="float-right">Collapse</h5>
+          </div>
+        <div class ="col-12">
+            <form action="" method="" class="form-inline">
+                <label for="people">People: </label>
+                <input type="number" class="form-control" id="peopl" style="margin:10px; width:65px; border:2px solid;">
+            </form>
+          </div>
+        </div> 
+    
+    <div class ="row">
+        <div class ="col-12 collapse dont-collapse-sm" id="collapse">  
+            <div class ="row" id="sbminirow2">
+                <div class = "col-6">
+                    <h5 align="center">Dish Name</h5>
+                </div>
+                <div class ="col-6">
+                    <h5 align="center">Cost</h5>
+                </div>
+            </div>
+            <div class="row" id="sbminirow3">
+                <div class = "col-12">
+                    <h5 class="float-right" style="margin:10px; color:co;">SEK 0.00</h5>
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 30vw;">
+                <div class = "col-12" align="center">
+                    <button type="button" class="btn btn-primary" style="margin:10px" id="confirm">Confirm Dinner</button>
+                </div>
+            </div>
+        </div> 
+    </div>  <!-- end of Collaps -->
+    </div> <!--end of sidebar-->
+    
+    <div class = "col-lg-10 col-sm-12" id="DishSearchView"> <!-- Dish Search View (next to sidebar) -->
+        <div class ="row">
+            <div class ="col-lg-6 col-sm-12" id="dishdetail">
+                <h2>Meat Balls</h2>
+                <img src="images/meatballs.jpg" id="dishdetailimg">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad miinim
+                veniam, quis nostrud excercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat.</p>
+                <button type="button" class="btn btn-primary" id="backtosearch">back to search</button>
+            </div>
+            <div class ="col-lg-6" id="ingredientsdetail">
+                <h4>INGREDIENTS FOR 3 PEOPLE</h4>
+                <hr>
+                <p>2 tbsp olive oil SEK 0.20</p>
+                <p>2 tbsp olive oil SEK 0.20</p>
+                <p>2 tbsp olive oil SEK 0.20</p>
+                <p>2 tbsp olive oil SEK 0.20</p>
+                <hr>
+                <button type="button" class="btn btn-primary" id="addtomenu">Add to menu</button> 
+                <p>SEK 0.20</p>
+                </div>
+                </div>
+        <div class ="row">
+            <div class ="col-12">
+            <h1>Preperation</h1>
+            <p>start with putting shit in the oven</p>
+            </div>
+        </div>
+    </div>  <!-- End of Dish Searh View -->
+      
+      
+      
+        </div> <!-- End of Whole Page -->
+
+   
+   
+   
+    
+
+
+
+
+
+
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js">
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/view/exampleView.js"></script>
+	<!-- TODO: Here you should include JS code for your other views -->
+  </body>
+</html>

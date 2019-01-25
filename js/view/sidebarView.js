@@ -12,7 +12,7 @@
  * @param {jQuery object} container - references the HTML parent element that contains the view.
  * @param {Object} model - the reference to the Dinner Model
  */ 
-var ExampleView = function (container, model) {
+var SidebarView = function (container, model) {
 	
 	/**
 	 * We use the @method find() on @var {jQuery object} container to look for various elements 
@@ -34,7 +34,48 @@ var ExampleView = function (container, model) {
 	 * 
 	 */
 	var numberOfGuests = container.find("#numberOfGuests");
-
+    var sideBar = container.find("#sideBar");
+    var guests = model.getNumberOfGuests();
+    
+    var content = `<div class="row" id ="sbminirow1">
+        <div class = "col-6">
+            <h5 align="left">My Dinner</h5>
+          </div>
+        <div class ="col-6">
+            <h5 data-toggle="collapse" data-target="#collapse" aria-expanded="false" controls="" class="float-right">Collapse</h5>
+          </div>
+        <div class ="col-12">
+            <form action="" method="" class="form-inline">
+                <label for="people">People: </label>
+                <input type="number" class="form-control" id="people" style="margin:10px; width:50px;">  
+            </form>
+          </div>
+        </div> 
+    
+    <div class ="row">
+        <div class ="col-12 collapse dont-collapse-sm" id="collapse">  
+            <div class ="row" id="sbminirow2">
+                <div class = "col-6">
+                    <h5 align="center">Dish Name</h5>
+                </div>
+                <div class ="col-6">
+                    <h5 align="center">Cost</h5>
+                </div>
+            </div>
+            <div class="row" id="sbminirow3">
+                <div class = "col-12">
+                    <h5 class="float-right" style="margin:10px;">SEK 0.00</h5>
+                </div>
+            </div>
+            <div class="row" style="padding-bottom: 30vw;">
+                <div class = "col-12" align="center">
+                    <button type="button" class="btn btn-primary" style="margin:10px" id="confirm">Confirm Dinner</button>
+                </div>
+            </div>
+        </div>
+        
+    </div>  <!-- end of Collaps -->
+        `;
 	/**
 	 * When we want references to some view elements to be available from outside of view, we 
 	 * define them as this.someName. We don't need this in Lab 1 yet, but in Lab 2 it 
@@ -52,7 +93,7 @@ var ExampleView = function (container, model) {
 	 * Here we use @var {jQuery object} numberOfGuests that is a reference to <span>
 	 * in our view to dynamically set it's value to "Hello World".
 	 */
-	numberOfGuests.html(model.getNumberOfGuests);
+	sideBar.html(content);
 	
 }
  
